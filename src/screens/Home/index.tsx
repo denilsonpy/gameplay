@@ -6,6 +6,7 @@ import { Profile } from "../../components/Profile";
 import { ButtonAdd } from "../../components/ButtonAdd";
 import { ListHeader } from "../../components/ListHeader";
 import { Appointment } from "../../components/Appointment";
+import { ListDivider } from "../../components/ListDivider";
 import { CategorySelect } from "../../components/CategorySelect";
 
 export function Home() {
@@ -25,6 +26,32 @@ export function Home() {
       description:
         "É hoje que vamos chegar ao challenger sem perder uma partida da md10",
     },
+    {
+      id: "2",
+      guild: {
+        id: "1",
+        name: "Hackers.com",
+        icon: null,
+        owner: false,
+      },
+      category: "1",
+      date: "22/06 as 20:45h",
+      description:
+        "É hoje que vamos chegar ao challenger sem perder uma partida da md10",
+    },
+    {
+      id: "3",
+      guild: {
+        id: "1",
+        name: "Devs",
+        icon: null,
+        owner: true,
+      },
+      category: "1",
+      date: "22/06 as 21:10h",
+      description:
+        "É hoje que vamos chegar ao challenger sem perder uma partida da md10",
+    },
   ];
 
   function handleCategorySelect(categoryId: string) {
@@ -38,19 +65,20 @@ export function Home() {
         <ButtonAdd />
       </View>
 
-      <View>
-        <CategorySelect
-          categorySelected={category}
-          setCategory={handleCategorySelect}
-        />
-        <View style={styles.content}></View>
-        <ListHeader title="Partidas agendadas" subtitle="total 6" />
-        <FlatList
-          data={appointments}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Appointment data={item} />}
-        />
-      </View>
+      <CategorySelect
+        categorySelected={category}
+        setCategory={handleCategorySelect}
+      />
+      <View style={styles.content}></View>
+      <ListHeader title="Partidas agendadas" subtitle="total 6" />
+      <FlatList
+        data={appointments}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Appointment data={item} />}
+        style={styles.matches}
+        showsVerticalScrollIndicator={false}
+        ItemSeparatorComponent={() => <ListDivider />}
+      />
     </View>
   );
 }
