@@ -4,6 +4,7 @@ import { View, FlatList, Text } from "react-native";
 import { styles } from "./styles";
 import { Profile } from "../../components/Profile";
 import { ButtonAdd } from "../../components/ButtonAdd";
+import { Background } from "../../components/Background";
 import { ListHeader } from "../../components/ListHeader";
 import { Appointment } from "../../components/Appointment";
 import { ListDivider } from "../../components/ListDivider";
@@ -59,7 +60,7 @@ export function Home() {
   }
 
   return (
-    <View>
+    <Background>
       <View style={styles.header}>
         <Profile />
         <ButtonAdd />
@@ -79,6 +80,6 @@ export function Home() {
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <ListDivider />}
       />
-    </View>
+    </Background>
   );
 }

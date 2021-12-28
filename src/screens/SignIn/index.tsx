@@ -4,7 +4,9 @@ import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "./styles";
 import illustration from "../../assets/illustration.png";
+
 import { ButtonIcon } from "../../components/ButtonIcon";
+import { Background } from "../../components/Background";
 
 export function SingIn() {
   const navigation = useNavigation();
@@ -15,24 +17,26 @@ export function SingIn() {
   }
 
   return (
-    <View style={styles.container}>
-      <Image source={illustration} style={styles.image} />
+    <Background>
+      <View style={styles.container}>
+        <Image source={illustration} style={styles.image} />
 
-      <View style={styles.content}>
-        <Text style={styles.title}>
-          Conecte-se {"\n"}e organize suas {"\n"}jogativas
-        </Text>
-        <Text style={styles.subtitle}>
-          Crie grupos para seus games {"\n"}
-          favoritos com seus amigos
-        </Text>
+        <View style={styles.content}>
+          <Text style={styles.title}>
+            Conecte-se {"\n"}e organize suas {"\n"}jogativas
+          </Text>
+          <Text style={styles.subtitle}>
+            Crie grupos para seus games {"\n"}
+            favoritos com seus amigos
+          </Text>
 
-        <ButtonIcon
-          title="Entrar com o discord"
-          activeOpacity={0.7}
-          onPress={handleSingIn}
-        />
+          <ButtonIcon
+            title="Entrar com o discord"
+            activeOpacity={0.7}
+            onPress={handleSingIn}
+          />
+        </View>
       </View>
-    </View>
+    </Background>
   );
 }
