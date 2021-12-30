@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, FlatList, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "./styles";
 import { Profile } from "../../components/Profile";
@@ -12,6 +13,8 @@ import { CategorySelect } from "../../components/CategorySelect";
 
 export function Home() {
   const [category, setCategory] = useState("");
+
+  const navigation = useNavigation();
 
   const appointments = [
     {
@@ -27,36 +30,15 @@ export function Home() {
       description:
         "É hoje que vamos chegar ao challenger sem perder uma partida da md10",
     },
-    {
-      id: "2",
-      guild: {
-        id: "1",
-        name: "Hackers.com",
-        icon: null,
-        owner: false,
-      },
-      category: "1",
-      date: "22/06 as 20:45h",
-      description:
-        "É hoje que vamos chegar ao challenger sem perder uma partida da md10",
-    },
-    {
-      id: "3",
-      guild: {
-        id: "1",
-        name: "Devs",
-        icon: null,
-        owner: true,
-      },
-      category: "1",
-      date: "22/06 as 21:10h",
-      description:
-        "É hoje que vamos chegar ao challenger sem perder uma partida da md10",
-    },
   ];
 
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory("") : setCategory(categoryId);
+  }
+
+  function handleAppointmentDetails() {
+    // @ts-ignore
+    navigation.navigate("AppointmentDetails");
   }
 
   return (
@@ -75,7 +57,9 @@ export function Home() {
       <FlatList
         data={appointments}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Appointment data={item} />}
+        renderItem={({ item }) => (
+          <Appointment onPress={handleAppointmentDetails} data={item} />
+        )}
         style={styles.matches}
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <ListDivider />}

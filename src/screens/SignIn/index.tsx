@@ -12,7 +12,7 @@ export function SingIn() {
   const navigation = useNavigation();
 
   function handleSingIn() {
-    // @ts-ignore: Unreachable code error
+    // @ts-ignore
     navigation.navigate("Home");
   }
 
