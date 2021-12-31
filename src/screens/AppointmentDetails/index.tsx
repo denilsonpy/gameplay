@@ -8,8 +8,11 @@ import BannerImg from "../../assets/banner.png";
 import { theme } from "../../global/styles/theme";
 
 import { Header } from "../../components/Header";
-import { Background } from "../../components/Background";
+import { Member } from "../../components/Member";
 import { ListHeader } from "../../components/ListHeader";
+import { Background } from "../../components/Background";
+import { ListDivider } from "../../components/ListDivider";
+import { ButtonIcon } from "../../components/ButtonIcon";
 
 export function AppointmentDetails() {
   const members = [
@@ -48,8 +51,13 @@ export function AppointmentDetails() {
       <FlatList
         data={members}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => {}}
+        renderItem={({ item }) => <Member data={item} />}
+        ItemSeparatorComponent={() => <ListDivider />}
+        style={styles.members}
       />
+      <View style={styles.footer}>
+        <ButtonIcon title="Entrar na partida" />
+      </View>
     </Background>
   );
 }

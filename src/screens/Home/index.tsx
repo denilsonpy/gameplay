@@ -41,11 +41,16 @@ export function Home() {
     navigation.navigate("AppointmentDetails");
   }
 
+  function handleAppointmentCreate() {
+    // @ts-ignore
+    navigation.navigate("AppointmentCreate");
+  }
+
   return (
     <Background>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd />
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
 
       <CategorySelect
