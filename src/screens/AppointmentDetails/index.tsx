@@ -20,7 +20,7 @@ export function AppointmentDetails() {
       id: "1",
       username: "denilsonpy",
       avatar_url: "https://github.com/denilsonpy.png",
-      status: "online",
+      status: "offline",
     },
     {
       id: "2",
@@ -53,6 +53,7 @@ export function AppointmentDetails() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <Member data={item} />}
         ItemSeparatorComponent={() => <ListDivider />}
+        contentContainerStyle={{ paddingBottom: 69 }}
         style={styles.members}
       />
       <View style={styles.footer}>
