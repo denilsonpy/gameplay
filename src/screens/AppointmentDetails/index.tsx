@@ -52,12 +52,12 @@ export function AppointmentDetails() {
         data={members}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <Member data={item} />}
-        ItemSeparatorComponent={() => <ListDivider />}
+        ItemSeparatorComponent={() => <ListDivider isCentered />}
         contentContainerStyle={{ paddingBottom: 69 }}
         style={styles.members}
       />
       <View style={styles.footer}>
-        <ButtonIcon title="Entrar na partida" />
+        <ButtonIcon title="Entrar na partida" onPress={() => {}} />
       </View>
     </Background>
   );
