@@ -3,12 +3,3 @@
 ```diff
 @@ react native app @@
 ```
-
-## config
-
-Para conseguir sua URI de redirecionamento use:
-
-```javascript
-const url = AuthSession.getRedirectUrl("redirect");
-console.log(url);
-```
